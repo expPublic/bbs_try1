@@ -15,7 +15,7 @@ body {
 	background-color: #4A374A;
 }
 
-#login {
+#register {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -24,7 +24,7 @@ body {
 	height: 300px;
 }
 
-#login h1 {
+#register h1 {
 	color: #fff;
 	text-shadow: 0 0 4px;
 	letter-spacing: 1px;
