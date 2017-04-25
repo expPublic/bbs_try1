@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Map;
 
 //帖子类
-public class Post {
+public class Post{
 
 	private String content;//内容
-	private String creatingDate;//创建日期
+	private String creatingDate;//创建日期·
 	private String type;//类型、主题标签
 	private ArrayList<Map<String, String>> comment;//评论人+评论内容
 	private String getContent() {
