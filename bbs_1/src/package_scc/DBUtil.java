@@ -51,6 +51,7 @@ public class DBUtil {
 		}
 	}
 
+	// 插入一条数据，主要用于注册
 	public static int insert(UserBean user) {
 		String sql = "insert into users(username,password)values(?,?)";
 		int i = 0;// 0则失败，非0则成功
@@ -70,15 +71,18 @@ public class DBUtil {
 		return i;
 	}
 
+	// 删除某数据。用于利用此方法删除帖子、删除违法会员账号等
 	public static void delete() {
 
 	}
 
+	// 数据修改更新，帖子ID的增加修改，email、密码等的完善修改
 	public static void update() {
 
 	}
 
-	public static ResultSet query(UserBean user) {// 查询结果返回 一个集合
+	// 查询操作，目的要看到查询结果，查询结果返回 一个集合
+	public static ResultSet query(UserBean user) {
 		String sql = "select * from users where username=?";
 		Connection connection = open();
 		PreparedStatement preparedStatement = null;
@@ -92,8 +96,10 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		return rs;
-	}	
-	public static boolean query_forLogin(UserBean user) {// 专门为登录验证写的方法，只需返回布尔值，验证是否通过
+	}
+
+	// 查询操作， 专门为登录验证写的方法，只需返回布尔值，验证是否通过
+	public static boolean query_forLogin(UserBean user) {
 		String sql = "select * from users where username=? and password=?";
 		Connection connection = DBUtil.open();
 		PreparedStatement preparedStatement = null;
@@ -135,7 +141,7 @@ public class DBUtil {
 		UserBean user = new UserBean();
 		user.setUsername(username);
 		ResultSet rs = query(user);
-		try	 {
+		try {
 			rs.last();
 			int length = rs.getRow();
 			rs.first();
